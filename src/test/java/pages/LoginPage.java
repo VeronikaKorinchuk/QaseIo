@@ -20,6 +20,6 @@ public class LoginPage {
         $(EMAIL_LOCATOR).sendKeys(user);
         $(PASSWORD_LOCATOR).sendKeys(password);
         $(LOGIN_BUTTON_LOCATOR).click();
-        return new ProjectsPage();
+        return new ProjectsPage().isOpened();
     }
 }
