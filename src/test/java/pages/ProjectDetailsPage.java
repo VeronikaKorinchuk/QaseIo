@@ -1,8 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
-import models.CaseForm;
-import models.CaseFormFactory;
+import models.TestCaseFactory;
 import org.openqa.selenium.By;
 import wrappers.Dropdown;
 import static com.codeborne.selenide.Selenide.$;
@@ -19,18 +18,18 @@ public class ProjectDetailsPage {
         return this;
     }
 
-    public ProjectDetailsPage fillNewCaseForm(CaseForm caseForm) {
-        $(TITLE_LOCATOR).sendKeys(CaseFormFactory.fill().getTitle());
-        new Dropdown("statusGroup", CaseFormFactory.fill().getStatus());
-        new Dropdown("suiteGroup", CaseFormFactory.fill().getSuite());
-        new Dropdown("severityGroup", CaseFormFactory.fill().getSeverity());
-        new Dropdown("priorityGroup", CaseFormFactory.fill().getPriority());
-        new Dropdown("typeGroup", CaseFormFactory.fill().getType());
-        new Dropdown("layerGroup", CaseFormFactory.fill().getLayer());
-        new Dropdown("is_flakyGroup", CaseFormFactory.fill().getIsFlaky());
-        new Dropdown("milestoneGroup", CaseFormFactory.fill().getMilestone());
-        new Dropdown("behaviorGroup", CaseFormFactory.fill().getBehavior());
-        new Dropdown("automationStatusGroup", CaseFormFactory.fill().getAutomationStatus());
+    public ProjectDetailsPage fillNewCaseForm() {
+        $(TITLE_LOCATOR).sendKeys(TestCaseFactory.get().getTitle());
+        new Dropdown("statusGroup", TestCaseFactory.get().getStatus());
+        new Dropdown("suiteGroup", TestCaseFactory.get().getSuite());
+        new Dropdown("severityGroup", TestCaseFactory.get().getSeverity());
+        new Dropdown("priorityGroup", TestCaseFactory.get().getPriority());
+        new Dropdown("typeGroup", TestCaseFactory.get().getType());
+        new Dropdown("layerGroup", TestCaseFactory.get().getLayer());
+        new Dropdown("is_flakyGroup", TestCaseFactory.get().getIsFlaky());
+        new Dropdown("milestoneGroup", TestCaseFactory.get().getMilestone());
+        new Dropdown("behaviorGroup", TestCaseFactory.get().getBehavior());
+        new Dropdown("automationStatusGroup", TestCaseFactory.get().getAutomationStatus());
         return this;
     }
 }

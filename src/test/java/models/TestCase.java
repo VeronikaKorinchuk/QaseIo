@@ -1,6 +1,6 @@
 package models;
 
-public class CaseForm {
+public class TestCase {
 
     String title;
     String status;
@@ -14,7 +14,7 @@ public class CaseForm {
     String behavior;
     String automationStatus;
 
-    public CaseForm(String title, String status, String suite, String severity, String priority, String type,
+    public TestCase(String title, String status, String suite, String severity, String priority, String type,
                     String layer, String isFlaky, String milestone, String behavior, String automationStatus) {
         this.title = title;
         this.status = status;

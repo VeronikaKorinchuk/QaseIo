@@ -1,13 +1,12 @@
 package tests;
 
-import models.CaseForm;
-import models.CaseFormFactory;
+import models.TestCase;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
 public class CaseTest extends BaseTest{
 
-    CaseForm caseForm;
+    TestCase caseForm;
 
     @Test
     public void testCaseShouldBeCreated() {
@@ -16,7 +15,7 @@ public class CaseTest extends BaseTest{
                 .login("vvv.zenkevich@gmail.com", "password03")
                 .openProject("This project")
                 .clickCreateCase()
-                .fillNewCaseForm(caseForm = CaseFormFactory.fill());
+                .fillNewCaseForm();
         //validate case info
     }
 }
