@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import models.TestCase;
 import models.TestCaseFactory;
 import org.openqa.selenium.By;
 import wrappers.Dropdown;
@@ -18,18 +19,18 @@ public class ProjectDetailsPage {
         return this;
     }
 
-    public ProjectDetailsPage fillNewCaseForm() {
-        $(TITLE_LOCATOR).sendKeys(TestCaseFactory.get().getTitle());
-        new Dropdown("statusGroup", TestCaseFactory.get().getStatus());
-        new Dropdown("suiteGroup", TestCaseFactory.get().getSuite());
-        new Dropdown("severityGroup", TestCaseFactory.get().getSeverity());
-        new Dropdown("priorityGroup", TestCaseFactory.get().getPriority());
-        new Dropdown("typeGroup", TestCaseFactory.get().getType());
-        new Dropdown("layerGroup", TestCaseFactory.get().getLayer());
-        new Dropdown("is_flakyGroup", TestCaseFactory.get().getIsFlaky());
-        new Dropdown("milestoneGroup", TestCaseFactory.get().getMilestone());
-        new Dropdown("behaviorGroup", TestCaseFactory.get().getBehavior());
-        new Dropdown("automationStatusGroup", TestCaseFactory.get().getAutomationStatus());
+    public ProjectDetailsPage fillNewCaseForm(TestCase testCase) {
+        $(TITLE_LOCATOR).sendKeys(testCase.getTitle());
+        new Dropdown("statusGroup").select(testCase.getStatus());
+        new Dropdown("suiteGroup").select(testCase.getSuite());
+        new Dropdown("severityGroup").select(testCase.getSeverity());
+        new Dropdown("priorityGroup").select(testCase.getPriority());
+        new Dropdown("typeGroup").select(testCase.getType());
+        new Dropdown("layerGroup").select(testCase.getLayer());
+        new Dropdown("is_flakyGroup").select(testCase.getIsFlaky());
+        new Dropdown("milestoneGroup").select(testCase.getMilestone());
+        new Dropdown("behaviorGroup").select(testCase.getBehavior());
+        new Dropdown("automationStatusGroup").select(testCase.getAutomationStatus());
         return this;
     }
 }
