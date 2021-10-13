@@ -9,7 +9,7 @@ public class ProjectTest extends BaseTest{
     public void projectShouldBeCreated() {
         new LoginPage()
                 .open()
-                .login(USER, PASSWORD)
+                .login(user, pass)
                 .clickCreate()
                 .fillNewProjectForm("This project", "", "Write smth", "Public",
                         "")
