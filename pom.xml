@@ -16,6 +16,7 @@
         <aspectjweaver.version>1.9.6</aspectjweaver.version>
         <allure.testng.version>2.13.9</allure.testng.version>
         <suiteXmlFile>src/test/resources/regression.xml</suiteXmlFile>
+        <javafaker.version>1.0.2</javafaker.version>
     </properties>
 
     <build>
@@ -70,6 +71,13 @@
             <artifactId>allure-testng</artifactId>
             <version>${allure.testng.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${javafaker.version}</version>
         </dependency>
 
     </dependencies>
