@@ -20,10 +20,6 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
       - run:
-          name: Checking Chrome version
-          command: chrome --version
-
-      - run:
           name: Running tests
           command: mvn clean test
       - run:
@@ -37,7 +33,7 @@ jobs:
           path: target/site/allure-maven-plugin/
 workflows:
   version: 2
-  commit:
+  comm:
     jobs:
       - ui-tests
   periodical:
