@@ -13,7 +13,7 @@ public class CaseTest extends BaseTest{
     public void testCaseShouldBeCreated() {
         new LoginPage()
                 .open()
-                .login("vvv.zenkevich@gmail.com", "password03")
+                .login(USER, PASSWORD)
                 .openProject("This project")
                 .clickCreateCase()
                 .fillNewCaseForm(testcase = TestCaseFactory.get());
