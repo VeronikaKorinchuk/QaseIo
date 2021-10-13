@@ -33,7 +33,7 @@ jobs:
           path: target/site/allure-maven-plugin/
 workflows:
   version: 2
-  comm:
+  commit:
     jobs:
       - ui-tests
   periodical:
