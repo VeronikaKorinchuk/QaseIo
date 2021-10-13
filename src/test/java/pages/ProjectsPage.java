@@ -8,18 +8,19 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class ProjectsPage {
 
-    public static final String CREATE_PRODUCT_BUTTON = "#createButton";
+    public static final String CREATE_PROJECT_BUTTON = "#createButton";
     public static final String TITLE_LOCATOR = "#inputTitle";
     public static final String CODE_LOCATOR = "#inputCode";
     public static final String DESCRIPTION_LOCATOR = "#inputDescription";
+    public static final String PROJECT_TITLES = "a.defect-title";
 
     public ProjectsPage isOpened() {
-        $(CREATE_PRODUCT_BUTTON).shouldBe(Condition.visible);
+        $(CREATE_PROJECT_BUTTON).shouldBe(Condition.visible);
         return this;
     }
 
-    public ProjectsPage clickCreateProduct() {
-        $(CREATE_PRODUCT_BUTTON).click();
+    public ProjectsPage clickCreate() {
+        $(CREATE_PROJECT_BUTTON).click();
         $(TITLE_LOCATOR).shouldBe(Condition.visible);
         return this;
     }
@@ -33,7 +34,7 @@ public class ProjectsPage {
         $(DESCRIPTION_LOCATOR).sendKeys(description);
         switch (accessType) {
             case "Public": {
-                $("public-access-type").click();
+                $("#public-access-type").click();
                 break;
             }
             case "Private": {
@@ -52,15 +53,18 @@ public class ProjectsPage {
                 break;
             }
         }
+        return this;
+    }
+
+    public ProjectsPage clickSave() {
         $(DESCRIPTION_LOCATOR).submit();
+        $(DESCRIPTION_LOCATOR).shouldBe(Condition.disappear);
         return this;
     }
 
     public ProjectDetailsPage openProject(String name) {
-        $$("a.defect-title").findBy(Condition.text(name)).click();
+        $$(PROJECT_TITLES).findBy(Condition.text(name)).click();
         $(By.xpath("//div(contains(@id, 'react-select'))"));
-        //title i dropdown заполнить
-        //по возможности
         return new ProjectDetailsPage();
     }
 }
