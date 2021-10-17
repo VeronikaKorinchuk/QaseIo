@@ -10,6 +10,7 @@ public class ProjectTest extends BaseTest{
         new LoginPage()
                 .open()
                 .login(user, pass)
+                .deleteProject("This project")
                 .clickCreate()
                 .fillNewProjectForm("This project", "", "Write smth", "Public",
                         "")

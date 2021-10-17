@@ -16,7 +16,8 @@ public class CaseTest extends BaseTest{
                 .login(user, pass)
                 .openProject("This project")
                 .clickCreateCase()
-                .fillNewCaseForm(testcase = TestCaseFactory.get());
+                .fillTestCase(testcase = TestCaseFactory.get())
+                .saveTestCase();
         //validate case info
     }
 }
