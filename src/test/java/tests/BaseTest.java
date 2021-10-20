@@ -21,7 +21,7 @@ public class BaseTest {
                 PropertyReader.getProperty("qase.pass"));
         Configuration.timeout = 60000;
         Configuration.browser = "chrome";
-        Configuration.browserVersion = "94.0.4606.61";
+        Configuration.browserVersion = "94.0.4606.81";
         Configuration.startMaximized = true;
         Configuration.headless = false;
         Configuration.clickViaJs = false;
