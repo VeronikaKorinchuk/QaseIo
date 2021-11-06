@@ -1,23 +1,25 @@
 package tests;
 
-import models.TestCase;
-import models.TestCaseFactory;
+import adapters.BaseAdapter;
+import com.google.gson.Gson;
+import models.Project;
 import org.testng.annotations.Test;
-import pages.LoginPage;
 
 public class CaseTest extends BaseTest{
 
-    TestCase testcase;
-
     @Test
     public void testCaseShouldBeCreated() {
-        new LoginPage()
-                .open()
-                .login(user, pass)
-                .openProject("This project")
-                .clickCreateCase()
-                .fillTestCase(testcase = TestCaseFactory.get())
-                .saveTestCase();
-        //validate case info
+        Project project = Project.builder().
+        //        title("One else project").
+        //        code("CODE").
+                build();
+
+        //projectAdapter.create(project);
+        //Project actualProject = projectAdapter.get(project.getCode());
+        //System.out.println(actualProject);
+        //projectAdapter.delete(project.getCode());
+
+        new BaseAdapter()
+                .post(new Gson().toJson(project), "v1/project", 422);
     }
 }

@@ -1,5 +1,6 @@
 package tests;
 
+import adapters.ProjectAdapter;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.testng.annotations.AfterMethod;
@@ -10,6 +11,7 @@ public class BaseTest {
 
     String user;
     String pass;
+    ProjectAdapter projectAdapter;
 
     @BeforeMethod
     public void setup () {
@@ -25,6 +27,7 @@ public class BaseTest {
         Configuration.startMaximized = true;
         Configuration.headless = false;
         Configuration.clickViaJs = false;
+        projectAdapter = new ProjectAdapter();
     }
 
     @AfterMethod
