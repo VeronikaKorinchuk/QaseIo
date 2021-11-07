@@ -1,6 +1,7 @@
 package tests;
 
 import adapters.ProjectAdapter;
+import adapters.SharedStepAdapter;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.testng.annotations.AfterMethod;
@@ -12,6 +13,7 @@ public class BaseTest {
     String user;
     String pass;
     ProjectAdapter projectAdapter;
+    SharedStepAdapter sharedStepAdapter;
 
     @BeforeMethod
     public void setup () {
@@ -28,6 +30,7 @@ public class BaseTest {
         Configuration.headless = false;
         Configuration.clickViaJs = false;
         projectAdapter = new ProjectAdapter();
+        sharedStepAdapter = new SharedStepAdapter();
     }
 
     @AfterMethod
